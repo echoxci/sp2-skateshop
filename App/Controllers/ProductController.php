@@ -66,6 +66,8 @@ class ProductController extends AControllerBase
 
         $productId = $getData["id"];
 
+        $success = false;
+
         $name = $postData['name'] ?? null;
         $description = $postData['description'] ?? null;
         $price = $postData['price'] ?? null;
@@ -80,11 +82,20 @@ class ProductController extends AControllerBase
             $skateboardModel->price = $price;
             $skateboardModel->img_path = $imgPath;
             $skateboardModel->save();
+            try {
+                $skateboardModel->save();
+                $success = true;
+            } catch (\Exception $e) {}
         }
 
         return $this->html(CategoriesHelper::mergeCategories(
             [
                 'product' => ProductModel::getOne($productId),
+                'alert' =>
+                    [
+                        'message' => 'Podarilo sa!',
+                        'isVisible' => $success
+                    ]
             ]
         ));
     }

@@ -34,6 +34,9 @@
                         <input type="text" name="img_path" id="input-new-product-img" class="form-control" value="<?= $data["data"]["product"]->img_path ?? '' ?>">
                     </div>
                 </div>
+                <div id="success-message"<?= (!$data["data"]["alert"]["isVisible"]) ? 'class="d-none"' : '' ?>>
+                    <?= $data["data"]["alert"]["message"] ?>
+                </div>
                 <button type="submit" id="add-product" class="btn btn-outline-dark">Upravit produkt</button>
             </form>
         </div>
@@ -42,18 +45,24 @@
 
 <script>
     (() => {
-        const validateProduct = (fieldsArr) => {
-            let isValid = true;
+        setTimeout(() => {
+            const message = document.getElementById("success-message");
+            if (message.classList.contains("d-none")) return;
+            message.remove();
+        }, 5000)
 
-            fieldsArr.forEach((field) => {
-                if (!field.value) isValid = false;
-            });
-
-            return {
-                isValid,
-                message: "Data not valid!",
-            }
-        };
+        // const validateProduct = (fieldsArr) => {
+        //     let isValid = true;
+        //
+        //     fieldsArr.forEach((field) => {
+        //         if (!field.value) isValid = false;
+        //     });
+        //
+        //     return {
+        //         isValid,
+        //         message: "Data not valid!",
+        //     }
+        // };
 
         // document.getElementById("add-product").addEventListener("click", (e) => {
         //     e.preventDefault();

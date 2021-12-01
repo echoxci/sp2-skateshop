@@ -51,18 +51,18 @@
             message.remove();
         }, 5000)
 
-        const validateProduct = (fieldsArr) => {
-            let isValid = true;
-
-            fieldsArr.forEach((field) => {
-                if (!field.value) isValid = false;
-            });
-
-            return {
-                isValid,
-                message: "Ziadna polozka nemoze byt prazdna!",
-            }
-        };
+        // const validateProduct = (fieldsArr) => {
+        //     let isValid = true;
+        //
+        //     fieldsArr.forEach((field) => {
+        //         if (!field.value) isValid = false;
+        //     });
+        //
+        //     return {
+        //         isValid,
+        //         message: "Ziadna polozka nemoze byt prazdna!",
+        //     }
+        // };
 
         // document.getElementById("add-product").addEventListener("click", (e) => {
         //     e.preventDefault();
