@@ -12,7 +12,7 @@
             <?php foreach($data["data"]["products"] as $skate): ?>
             <div class="col mb-5">
                 <div class="card h-100">
-                    <img class="card-img-top" src="public/assets/img/<?= $skate->img_path ?>" alt="<?= $skate->name ?>"/>
+                    <img class="card-img-top" src="<?= $skate->img_path ?>" alt="<?= $skate->name ?>"/>
                     <div class="card-body p-4">
                         <div class="text-center">
                             <h5 class="fw-bolder"><?= $skate->name ?></h5>

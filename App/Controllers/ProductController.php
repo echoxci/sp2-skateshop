@@ -32,6 +32,8 @@ class ProductController extends AControllerBase
         $imgPath = $postData['img_path'] ?? null;
         $categoryId = $getData["category_id"] ?? null;
 
+        $success = false;
+
         $validData = $name && $description && $price && $imgPath && $categoryId;
 
         if (!empty($postData) && $validData) {
@@ -41,11 +43,19 @@ class ProductController extends AControllerBase
             $skateboardModel->price = $price;
             $skateboardModel->img_path = $imgPath;
             $skateboardModel->category_id = $categoryId;
-            $skateboardModel->save();
+            try {
+                $skateboardModel->save();
+                $success = true;
+            } catch (\Exception $e) {}
         }
 
         return $this->html(CategoriesHelper::mergeCategories(
-            []
+            [
+                'alert' => [
+                    'message' => 'Podarilo sa!',
+                    'isVisible' => $success
+                ],
+            ]
         ));
     }
 
