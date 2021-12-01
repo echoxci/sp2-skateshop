@@ -49,6 +49,36 @@ class ProductController extends AControllerBase
         ));
     }
 
+    public function edit()
+    {
+        $postData = $this->request()->getPost();
+        $getData = $this->request()->getGet();
+
+        $productId = $getData["id"];
+
+        $name = $postData['name'] ?? null;
+        $description = $postData['description'] ?? null;
+        $price = $postData['price'] ?? null;
+        $imgPath = $postData['img_path'] ?? null;
+
+        $validData = $name && $description && $price && $imgPath;
+
+        if (!empty($postData) && $validData) {
+            $skateboardModel = ProductModel::getOne($productId);
+            $skateboardModel->name = $name;
+            $skateboardModel->description = $description;
+            $skateboardModel->price = $price;
+            $skateboardModel->img_path = $imgPath;
+            $skateboardModel->save();
+        }
+
+        return $this->html(CategoriesHelper::mergeCategories(
+            [
+                'product' => ProductModel::getOne($productId),
+            ]
+        ));
+    }
+
     public function delete()
     {
         $id = $this->request()->getGet()['id'] ?? null;
