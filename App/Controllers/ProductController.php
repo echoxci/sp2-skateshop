@@ -52,13 +52,14 @@ class ProductController extends AControllerBase
     public function delete()
     {
         $id = $this->request()->getGet()['id'] ?? null;
+        $categoryId = $this->request()->getGet()['category_id'] ?? null;
 
         if ($id) {
             try {
-                SkateboardModel::getOne($id)->delete();
+                ProductModel::getOne($id)->delete();
             } catch (\Exception $e) {}
         }
 
-        header('location:/?c=home&a=skateboards');
+        header('location:/?c=home&a=product&category_id=' . $categoryId);
     }
 }
