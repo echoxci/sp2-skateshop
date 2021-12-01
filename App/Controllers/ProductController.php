@@ -34,17 +34,17 @@ class ProductController extends AControllerBase
 
         $success = false;
 
-        $validData = $name && $description && $price && $imgPath && $categoryId;
+        $validData = $name && $description && $price > 0 && $imgPath && $categoryId;
 
         if (!empty($postData) && $validData) {
-            $skateboardModel = new ProductModel();
-            $skateboardModel->name = $name;
-            $skateboardModel->description = $description;
-            $skateboardModel->price = $price;
-            $skateboardModel->img_path = $imgPath;
-            $skateboardModel->category_id = $categoryId;
+            $productModel = new ProductModel();
+            $productModel->name = $name;
+            $productModel->description = $description;
+            $productModel->price = $price;
+            $productModel->img_path = $imgPath;
+            $productModel->category_id = $categoryId;
             try {
-                $skateboardModel->save();
+                $productModel->save();
                 $success = true;
             } catch (\Exception $e) {}
         }
@@ -76,14 +76,14 @@ class ProductController extends AControllerBase
         $validData = $name && $description && $price && $imgPath;
 
         if (!empty($postData) && $validData) {
-            $skateboardModel = ProductModel::getOne($productId);
-            $skateboardModel->name = $name;
-            $skateboardModel->description = $description;
-            $skateboardModel->price = $price;
-            $skateboardModel->img_path = $imgPath;
-            $skateboardModel->save();
+            $productModel = ProductModel::getOne($productId);
+            $productModel->name = $name;
+            $productModel->description = $description;
+            $productModel->price = $price;
+            $productModel->img_path = $imgPath;
+            $productModel->save();
             try {
-                $skateboardModel->save();
+                $productModel->save();
                 $success = true;
             } catch (\Exception $e) {}
         }
