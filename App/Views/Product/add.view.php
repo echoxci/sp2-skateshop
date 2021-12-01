@@ -35,8 +35,44 @@
                     </div>
                 </div>
                 <button type="submit" id="add-product" class="btn btn-outline-dark">Pridať produkt</button>
-
             </form>
         </div>
     </div>
 </div>
+
+<script>
+    (() => {
+        const validateProduct = (fieldsArr) => {
+            let isValid = true;
+
+            fieldsArr.forEach((field) => {
+                if (!field.value) isValid = false;
+            });
+
+            return {
+                isValid,
+                message: "Data not valid!",
+            }
+        };
+
+        document.getElementById("add-product").addEventListener("click", (e) => {
+            e.preventDefault();
+            const form = document.getElementById("add-product-form");
+            const name = document.getElementById("input-new-product-name")
+            const price = document.getElementById("input-new-product-price")
+            const description = document.getElementById("input-new-product-description")
+            const imagePath = document.getElementById("input-new-product-img")
+
+            const { isValid, message } = validateProduct([
+                name, price, description, imagePath
+            ]);
+
+            if (!isValid) {
+                alert(message);
+                return;
+            }
+
+            form.submit();
+        });
+    })()
+</script>
