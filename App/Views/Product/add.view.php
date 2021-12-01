@@ -6,7 +6,7 @@
         </div>
     </div>
 </header>
-<div class="container px-4 h-100">
+<div class="container px-4 py-4 h-100">
     <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
         <div class="col-lg-8 align-self-baseline">
             <form id="add-product-form" method="post" action="/?c=product&a=add&category_id=<?= $_GET["category_id"] ?>">
