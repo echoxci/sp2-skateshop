@@ -25,7 +25,14 @@ class HomeController extends AControllerBase
     {
         $categoryId = $this->request()->getGet()['category_id'];
 
-        return $this->html(CategoriesHelper::mergeCategories(ProductModel::getAll( "category_id = ?", [$categoryId])));
+        return $this->html(
+            CategoriesHelper::mergeCategories(
+                [
+                    'products' => ProductModel::getAll( "category_id = ?", [$categoryId]),
+                    'category' => CategoryModel::getOne($categoryId),
+                ],
+            )
+        );
 
     }
 
@@ -61,27 +68,7 @@ class HomeController extends AControllerBase
 //
 //    public function addProduct()
 //    {
-//        $postData = $this->request()->getPost();
-//
-//        $name = $postData['name'];
-//        $description = $postData['description'];
-//        $price = $postData['price'];
-//        $imgPath = $postData['img_path'];
-//
-//        $validData = $name && $description && $price && $imgPath;
-//
-//        if (!empty($postData) && $validData) {
-//
-//            $skateboardModel = new SkateboardModel();
-//            $skateboardModel
-//                ->setName($name)
-//                ->setDescription($description)
-//                ->setPrice($price)
-//                ->setImgPath($imgPath)
-//                ->save();
-//        }
-//
-//        header('location:/?c=home&a=skateboards');
+
 //    }
 //
 //    public function deleteProduct()

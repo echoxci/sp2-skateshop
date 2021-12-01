@@ -1,7 +1,7 @@
 <header class="masthead py-5">
     <div class="container px-4 px-lg-5 my-5">
         <div class="text-center text-white">
-            <h1 class="display-4 fw-bolder text-white">Skate Komplety</h1>
+            <h1 class="display-4 fw-bolder text-white"><?= $data["data"]["category"]->name ?></h1>
             <hr class="divider">
         </div>
     </div>
@@ -9,7 +9,7 @@
 <section class="py-5">
     <div class="container px-4 px-lg-5 mt-5">
         <div class="row gx-4 gx-lg-5 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-            <?php foreach($data["data"] as $skate): ?>
+            <?php foreach($data["data"]["products"] as $skate): ?>
             <div class="col mb-5">
                 <div class="card h-100">
                     <img class="card-img-top" src="public/assets/img/<?= $skate->img_path ?>" alt="<?= $skate->name ?>"/>
@@ -29,7 +29,7 @@
             <?php endforeach; ?>
         </div>
         <div align="right">
-            <a class="btn btn-new-product" href="/?c=product&a=add">Pridať produkt</a>
+            <a class="btn btn-new-product" href="/?c=product&a=add&category_id=<?= $data["data"]["category"]->id ?>">Pridať produkt</a>
             <button class="btn btn-new-product">Vymazať celu kategoriu</button>
         </div>
     </div>

@@ -9,7 +9,7 @@
 <div class="container px-4 h-100">
     <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
         <div class="col-lg-8 align-self-baseline">
-            <form id="add-product-form" method="post" action="/?c=product&a=add">
+            <form id="add-product-form" method="post" action="/?c=product&a=add&category_id=<?= $_GET["category_id"] ?>">
                 <div class="mb-3 row">
                     <label for="input-new-product-name" class="col-sm-2 col-form-label">Nazov produktu</label>
                     <div class="col-sm-10">
