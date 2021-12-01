@@ -30,7 +30,6 @@
         </div>
         <div align="right">
             <a class="btn btn-new-product" href="/?c=product&a=add&category_id=<?= $data["data"]["category"]->id ?>">Pridať produkt</a>
-            <button class="btn btn-new-product">Vymazať celu kategoriu</button>
         </div>
     </div>
 </section>
