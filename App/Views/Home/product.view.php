@@ -22,7 +22,7 @@
                     </div>
                     <div class="card-footer row p-4 pt-0 border-top-0 bg-transparent">
                         <div class="text-center col"><a class="btn btn-outline-dark mt-auto">Upraviť</a></div>
-                        <div class="text-center col"><a class="btn btn-outline-dark mt-auto" href="/?c=product&a=delete&id=<?= $skate->id; ?>&category_id=<?= $data["data"]["category"]->id ?>">Zmazať</a></div>
+                        <div class="text-center col"><a class="btn btn-outline-dark mt-auto" href="/?c=product&a=delete&id=<?= $skate->id; ?>">Zmazať</a></div>
                     </div>
                 </div>
             </div>

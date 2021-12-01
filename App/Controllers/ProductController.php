@@ -52,7 +52,8 @@ class ProductController extends AControllerBase
     public function delete()
     {
         $id = $this->request()->getGet()['id'] ?? null;
-        $categoryId = $this->request()->getGet()['category_id'] ?? null;
+
+        $product = ProductModel::getOne($id);
 
         if ($id) {
             try {
@@ -60,6 +61,6 @@ class ProductController extends AControllerBase
             } catch (\Exception $e) {}
         }
 
-        header('location:/?c=home&a=product&category_id=' . $categoryId);
+        header('location:/?c=home&a=product&category_id=' . $product->category_id);
     }
 }
