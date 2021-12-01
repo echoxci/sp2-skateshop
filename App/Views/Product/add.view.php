@@ -29,7 +29,7 @@
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="input-new-product-img" class="col-sm-2 col-form-label">Nazov obrazku v zlozke</label>
+                    <label for="input-new-product-img" class="col-sm-2 col-form-label">URL adresa k obrazku</label>
                     <div class="col-sm-10">
                         <input type="text" name="img_path" id="input-new-product-img" class="form-control" required>
                     </div>
