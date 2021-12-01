@@ -32,9 +32,15 @@ class ProductController extends AControllerBase
         $imgPath = $postData['img_path'] ?? null;
         $categoryId = $getData["category_id"] ?? null;
 
+        $imgPathBool = false;
+
+        if (filter_var($imgPath, FILTER_VALIDATE_URL)) {
+            $imgPathBool = true;
+        }
+
         $success = false;
 
-        $validData = $name && $description && $price > 0 && $imgPath && $categoryId;
+        $validData = $name && $description && $price > 0 && $imgPathBool && $categoryId;
 
         if (!empty($postData) && $validData) {
             $productModel = new ProductModel();
@@ -73,7 +79,13 @@ class ProductController extends AControllerBase
         $price = $postData['price'] ?? null;
         $imgPath = $postData['img_path'] ?? null;
 
-        $validData = $name && $description && $price && $imgPath;
+        $imgPathBool = false;
+
+        if (filter_var($imgPath, FILTER_VALIDATE_URL)) {
+            $imgPathBool = true;
+        }
+
+        $validData = $name && $description && $price && $imgPathBool;
 
         if (!empty($postData) && $validData) {
             $productModel = ProductModel::getOne($productId);
