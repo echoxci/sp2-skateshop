@@ -25,7 +25,7 @@
                 <div class="mb-3 row">
                     <label for="input-new-product-price" class="col-sm-2 col-form-label">Cena produktu</label>
                     <div class="col-sm-10">
-                        <input type="number" name="price" id="input-new-product-price" class="form-control" value="0.00" required>
+                        <input type="number" step="0.01" name="price" id="input-new-product-price" class="form-control" value="0.00" required>
                     </div>
                 </div>
                 <div class="mb-3 row">

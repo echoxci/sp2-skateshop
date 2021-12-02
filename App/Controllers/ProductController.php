@@ -85,7 +85,7 @@ class ProductController extends AControllerBase
             $imgPathBool = true;
         }
 
-        $validData = $name && $description && $price && $imgPathBool;
+        $validData = $name && $description && $price > 0 && $imgPathBool;
 
         if (!empty($postData) && $validData) {
             $productModel = ProductModel::getOne($productId);
@@ -93,7 +93,6 @@ class ProductController extends AControllerBase
             $productModel->description = $description;
             $productModel->price = $price;
             $productModel->img_path = $imgPath;
-            $productModel->save();
             try {
                 $productModel->save();
                 $success = true;
