@@ -9,20 +9,20 @@
 <section class="py-5">
     <div class="container px-4 px-lg-5 mt-5">
         <div class="row gx-4 gx-lg-5 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-            <?php foreach($data["data"]["products"] as $skate): ?>
+            <?php foreach($data["data"]["products"] as $product): ?>
             <div class="col mb-5">
                 <div class="card h-100">
-                    <img class="card-img-top" src="<?= $skate->img_path ?>" alt="<?= $skate->name ?>"/>
+                    <img class="card-img-top" src="<?= $product->img_path ?>" alt="<?= $product->name ?>"/>
                     <div class="card-body p-4">
                         <div class="text-center">
-                            <h5 class="fw-bolder"><?= $skate->name ?></h5>
-                            <?= $skate->description ?>
-                            <p><?= $skate->price ?> &euro;</p>
+                            <h5 class="fw-bolder"><?= $product->name ?></h5>
+                            <?= $product->description ?>
+                            <p><?= $product->price ?> &euro;</p>
                         </div>
                     </div>
                     <div class="card-footer row p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center col"><a class="btn btn-outline-dark mt-auto" href="/?c=product&a=edit&id=<?= $skate->id; ?>">Upraviť</a></div>
-                        <div class="text-center col"><a class="btn btn-outline-dark mt-auto" href="/?c=product&a=delete&id=<?= $skate->id; ?>">Zmazať</a></div>
+                        <div class="text-center col"><a class="btn btn-outline-dark mt-auto" href="/?c=product&a=edit&id=<?= $product->id; ?>">Upraviť</a></div>
+                        <div class="text-center col"><a class="btn btn-outline-dark mt-auto" href="/?c=product&a=delete&id=<?= $product->id; ?>">Zmazať</a></div>
                     </div>
                 </div>
             </div>

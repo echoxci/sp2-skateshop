@@ -25,13 +25,13 @@
                 <div class="mb-3 row">
                     <label for="input-new-product-price" class="col-sm-2 col-form-label">Cena produktu</label>
                     <div class="col-sm-10">
-                        <input type="number" name="price" id="input-new-product-price" class="form-control" value="0" required>
+                        <input type="number" name="price" id="input-new-product-price" class="form-control" value="0.00" required>
                     </div>
                 </div>
                 <div class="mb-3 row">
                     <label for="input-new-product-img" class="col-sm-2 col-form-label">URL adresa k obrazku</label>
                     <div class="col-sm-10">
-                        <input type="text" name="img_path" id="input-new-product-img" class="form-control" required>
+                        <input type="url" name="img_path" id="input-new-product-img" class="form-control" required>
                     </div>
                 </div>
                 <div id="success-message"<?= (!$data["data"]["alert"]["isVisible"]) ? 'class="d-none"' : '' ?>>
